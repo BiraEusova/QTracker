@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
+    app:startDestination="@id/signUpFragment">
+
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.qtracker.signin.SignInFragment"
+        android:label="SignInFragment" >
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_bottomNavigation"
+            app:destination="@id/bottomNavigation" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.qtracker.signup.SignUpFragment"
+        android:label="SignUpFragment" >
+        <action
+            android:id="@+id/action_signUpFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_signUpFragment_to_bottomNavigation"
+            app:destination="@id/bottomNavigation" />
+    </fragment>
+    <activity
+        android:id="@+id/bottomNavigation"
+        android:name="com.example.qtracker.bottomNavigation.BottomNavigation"
+        android:label="BottomNavigation" />
+</navigation>

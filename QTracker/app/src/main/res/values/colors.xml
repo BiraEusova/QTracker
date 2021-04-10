@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    // System colors
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#FFFD7013</color> // delete?
+
+    // Main colors
+    <color name="main_orange">#FFFD7013</color>
+    <color name="main_dark_gray">#FF222831</color>
+    <color name="main_gray">#FF393E46</color>
+    <color name="main_light_gray">#FFEEEEEE</color>
+
+    // Classes colors
+    <color name="lection">#FFF6381C</color>
+    <color name="laboratory">#FF3BC1F7</color>
+    <color name="seminar">#FFFAA125</color>
+    <color name="practice">#FF1A658A</color>
+
+    // Auxiliary colors
+    <color name="auxiliary_grey">#FF808080</color>
+    <color name="auxiliary_light_grey">#FFC4C4C4</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+</resources>

@@ -1,0 +1,35 @@
+<resources>
+
+    <string name="app_name">QTracker</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="queue">Queue</string>
+    <string name="shedule">Shedule</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="name">Name</string>
+    <string name="group">Group</string>
+    <string name="subgroup">Subgroup</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="empty_day">There are no lessons on this day</string>
+    <string name="number">№</string>
+    <string name="status">Status</string>
+    <string name="add_yourself">+ Add yourself in queue</string>
+    <string name="swap">Swap</string>
+    <string name="remove">Remove yourself</string>
+    <string name="choose_swap">Choose somebody to swap</string>
+    <string name="remove_question">Are you sure you want to remove yourself from the queue?</string>
+    <string name="yes">Yes</string>
+    <string name="net_lesson">Next lessons on this subject</string>
+    <string name="choose_lesson">Tap on the card to go to the queue</string>
+    <string name="empty_next_lesson">Oops... It seems there are no lessons on this subject in the next week</string>
+    <string name="subjects_list">Subjects list</string>
+    <string name="all_my_positions">All my Positions in queues</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="save_changes">Save changes</string>
+    <string name="my_positions">My positions</string>
+    <string name="position_in_queue">Position in queue</string>
+
+
+
+</resources>
