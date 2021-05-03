@@ -18,7 +18,7 @@ class SubjectsListFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        navController = Navigation.findNavController(requireActivity(), R.id.navHostFragment)
+        //navController = Navigation.findNavController(requireActivity(), R.id.navHostFragment)
 
 
         return inflater.inflate(R.layout.subjects_list_fragment,

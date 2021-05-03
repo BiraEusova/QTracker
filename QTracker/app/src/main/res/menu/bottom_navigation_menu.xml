@@ -2,14 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/list_item_botnav"
-        android:icon="@drawable/list"
+        android:icon="@drawable/botnav_item_list_selection"
         android:title=""/>
     <item
         android:id="@+id/calendar_item_botnav"
-        android:icon="@drawable/calendar"
+        android:icon="@drawable/botnav_item_shedule_selection"
         android:title=""/>
     <item
         android:id="@+id/user_item_botnav"
-        android:icon="@drawable/user"
+        android:icon="@drawable/botnav_item_profile_selection"
         android:title=""/>
 </menu>

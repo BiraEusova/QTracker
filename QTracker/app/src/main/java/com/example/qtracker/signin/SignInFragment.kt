@@ -9,28 +9,33 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.qtracker.R
-import kotlinx.android.synthetic.main.sign_in_fragment.*
+import kotlinx.android.synthetic.main.sign_in_fragment.view.*
 
 class SignInFragment : Fragment() {
 
     private lateinit var navController: NavController
+    private lateinit var thisView: View
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
+
+        thisView = inflater.inflate(
+            R.layout.sign_in_fragment,
+            container, false)
+
         navController = Navigation.findNavController(requireActivity(), R.id.navHostFragment)
 
-        signInButton.setOnClickListener {
+        thisView.signInButton.setOnClickListener {
             navController.navigate(R.id.action_signInFragment_to_bottomNavigation)
         }
 
-        signUpButton.setOnClickListener {
+        thisView.signUpButton.setOnClickListener {
             navController.navigate(R.id.action_signInFragment_to_signUpFragment)
         }
 
-        return inflater.inflate(R.layout.sign_in_fragment,
-                container, false)
+        return thisView
     }
 }

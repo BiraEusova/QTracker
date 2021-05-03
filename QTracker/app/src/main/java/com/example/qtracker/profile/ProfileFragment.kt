@@ -18,7 +18,7 @@ class ProfileFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        navController = Navigation.findNavController(requireActivity(), R.id.navHostFragment)
+        //navController = Navigation.findNavController(requireActivity(), R.id.navHostFragment)
 
 
         return inflater.inflate(R.layout.profile_fragment,

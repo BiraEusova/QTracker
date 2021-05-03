@@ -12,6 +12,7 @@ import com.example.qtracker.R
 import com.example.qtracker.spinner.SpinnerAdapter
 import com.tiper.MaterialSpinner
 import kotlinx.android.synthetic.main.sign_up_fragment.*
+import kotlinx.android.synthetic.main.sign_up_fragment.view.*
 
 class SignUpFragment : Fragment() {
 
@@ -31,12 +32,12 @@ class SignUpFragment : Fragment() {
 
         navController = Navigation.findNavController(requireActivity(), R.id.navHostFragment)
 
-        backButton.setOnClickListener {
+        thisView.backButton.setOnClickListener {
             navController.navigate(R.id.action_signUpFragment_to_signInFragment)
         }
 
-        signUpButton.setOnClickListener {
-            navController.navigate(R.id.action_signUpFragment_to_bottomNavigation)
+        thisView.signUpButton.setOnClickListener {
+            navController.navigate(R.id.bottomNavigation)
         }
 
         /*val exampleGroupList = listOf("971901", "971902", "972001", "972002");
