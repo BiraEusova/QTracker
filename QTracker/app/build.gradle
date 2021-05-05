@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id 'com.google.gms.google-services'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -19,8 +20,9 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
     }
 
     buildTypes {
@@ -66,7 +68,12 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:27.1.0')
     implementation 'com.google.firebase:firebase-core:18.0.3'
     implementation 'com.google.firebase:firebase-database-ktx:19.7.0'
-}
 
-//Firebase
-//apply plugin: 'com.google.gms.google-services'
+    //LiveData
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"       // ViewModel
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"        // LiveData
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"         // Lifecycles only (without ViewModel or LiveData)
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1"// Saved state module for ViewModel
+
+
+}
