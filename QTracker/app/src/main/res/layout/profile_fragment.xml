@@ -1,6 +1,233 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".signup.SignUpFragment">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+        <variable
+            name="profileViewModel"
+            type="com.example.qtracker.profile.ProfileViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar"
+                android:layout_width="match_parent"
+                android:layout_height="88dp"
+                android:fitsSystemWindows="false">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="88dp"
+                    android:background="@color/white">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_marginTop="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView"
+                            style="@style/HeaderTextStyle"
+                            android:text="@string/profile"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/nameTextField"
+                    style="@style/TextFieldStyle"
+                    android:layout_marginTop="138dp"
+                    android:hint="@string/password"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/nameTextInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:inputType="textPersonName"
+                        android:text="@={profileViewModel.password}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/passwordTextField"
+                    style="@style/TextFieldStyle"
+                    android:layout_marginTop="36dp"
+                    android:hint="@string/password"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/groupSpinner">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/passwordTextInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:inputType="textPassword"
+                        android:text="@={profileViewModel.password}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.tiper.MaterialSpinner
+                    android:id="@+id/groupSpinner"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:clickable="false"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="@color/auxiliary_light_grey"
+                    android:hint="@string/group"
+                    app:boxBackgroundColor="@color/main_light_gray"
+                    app:boxCornerRadiusBottomEnd="22dp"
+                    app:boxCornerRadiusBottomStart="22dp"
+                    app:boxCornerRadiusTopEnd="22dp"
+                    app:boxCornerRadiusTopStart="22dp"
+                    app:boxStrokeColor="@color/main_orange"
+                    app:boxStrokeWidth="1dp"
+                    app:boxStrokeWidthFocused="1dp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nameTextField"
+                    app:spinnerMode="bottomsheet" />
+
+                <com.tiper.MaterialSpinner
+                    android:id="@+id/subgroupSpinner"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:clickable="false"
+                    android:layout_height="60dp"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginEnd="24dp"
+                    android:backgroundTint="@color/auxiliary_light_grey"
+                    android:hint="@string/subgroup"
+                    app:boxBackgroundColor="@color/main_light_gray"
+                    app:boxCornerRadiusBottomEnd="22dp"
+                    app:boxCornerRadiusBottomStart="22dp"
+                    app:boxCornerRadiusTopEnd="22dp"
+                    app:boxCornerRadiusTopStart="22dp"
+                    app:boxStrokeColor="@color/main_orange"
+                    app:boxStrokeWidth="1dp"
+                    app:boxStrokeWidthFocused="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline3"
+                    app:layout_constraintTop_toBottomOf="@+id/nameTextField"
+                    app:spinnerMode="bottomsheet" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <TextView
+                    android:id="@+id/nameTextView"
+                    style="@style/ProfileTextStyle"
+                    android:text="@string/name"
+                    app:layout_constraintBottom_toTopOf="@+id/nameTextField"
+                    app:layout_constraintStart_toStartOf="@+id/nameTextField" />
+
+                <TextView
+                    android:id="@+id/groupTextView"
+                    style="@style/ProfileTextStyle"
+                    android:text="@string/group"
+                    app:layout_constraintBottom_toTopOf="@+id/groupSpinner"
+                    app:layout_constraintStart_toStartOf="@+id/groupSpinner" />
+
+                <TextView
+                    android:id="@+id/subgroupTextView"
+                    style="@style/ProfileTextStyle"
+                    android:text="@string/subgroup"
+                    app:layout_constraintBottom_toTopOf="@+id/subgroupSpinner"
+                    app:layout_constraintStart_toStartOf="@+id/subgroupSpinner" />
+
+                <TextView
+                    android:id="@+id/passwordTextView"
+                    style="@style/ProfileTextStyle"
+                    android:text="@string/password"
+                    app:layout_constraintBottom_toTopOf="@+id/passwordTextField"
+                    app:layout_constraintStart_toStartOf="@+id/passwordTextField" />
+
+                <ImageButton
+                    android:id="@+id/visibilityImageButton"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="FFFFFFFF"
+                    app:layout_constraintBottom_toBottomOf="@+id/passwordTextField"
+                    app:layout_constraintEnd_toEndOf="@+id/passwordTextField"
+                    app:layout_constraintTop_toTopOf="@+id/passwordTextField"
+                    app:srcCompat="@drawable/password_visibility_off" />
+
+                <Button
+                    android:id="@+id/allPositionsButton"
+                    style="@style/MainButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/all_my_positions"
+                    android:theme="@style/Theme.QTracker"
+                    app:layout_constraintBottom_toTopOf="@+id/editButton"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.333"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/editButton"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginBottom="24dp"
+                    android:text="@string/edit_profile"
+                    android:textColor="@color/auxiliary_grey"
+                    android:textSize="16sp"
+                    android:theme="@style/Theme.QTracker"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/editButton"
+                    app:layout_constraintStart_toEndOf="@+id/editButton"
+                    app:layout_constraintTop_toTopOf="@+id/editButton"
+                    app:srcCompat="@drawable/edit_icon" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </FrameLayout>
+</layout>
