@@ -25,7 +25,7 @@ class SheduleFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
 
-        navController = Navigation.findNavController(requireActivity(), R.id.navHostFragment)
+        //navController = Navigation.findNavController(requireActivity(), R.id.navHostFragment)
 
         var view = inflater.inflate(R.layout.shedule_fragment,
             container, false)

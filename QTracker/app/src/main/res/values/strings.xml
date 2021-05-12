@@ -31,7 +31,16 @@
     <string name="my_positions">My positions</string>
     <string name="position_in_queue">Position in queue</string>
     <string name="dash">-</string>
-    dash
+
+    <!--     errors          -->
+    <string name="error_incorrect_name">Error: Incorrect name</string>
+    <string name="error_incorrect_group">Error: Incorrect group</string>
+    <string name="error_incorrect_subgroup">Error: Incorrect name</string>
+    <string name="error_no_user_found">Error: No such user</string>
+    <string name="error_incorrect_email">Error: Incorrect email</string>
+    <string name="error_incorrect_password">Error: Incorrect password. Should be at least 2 characters long</string>
+    <string name="error_password_not_repeated">Please repeat your password</string>
+    <string name="error_passwords_dont_match">Error: Passwords mismatch</string>
 
 
 

@@ -17,6 +17,8 @@ class BottomNavigation : AppCompatActivity(){
         setContentView(R.layout.botnav)
         botnav.setOnNavigationItemSelectedListener(navListener)
 
+        botnav.itemIconTintList = null
+
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction().replace(R.id.boxForFragments,
                     SheduleFragment()).commit()

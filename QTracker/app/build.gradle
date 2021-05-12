@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
+    id 'com.google.gms.google-services'
     id 'kotlin-kapt'
 }
 
@@ -51,13 +52,28 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     // Material design
-    implementation 'com.google.android.material:material:1.4.0-alpha01'
+    implementation 'com.google.android.material:material:1.4.0-alpha02'
 
     // Material spinner
     implementation 'com.github.tiper:MaterialSpinner:1.4.2'
     //implementation "com.androidx.support:design:28.0.0"
 
     // Navigation
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.4'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.4'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+
+    //Firebase
+    implementation 'com.firebaseui:firebase-ui:0.6.2'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation platform('com.google.firebase:firebase-bom:27.1.0')
+    implementation 'com.google.firebase:firebase-core:18.0.3'
+    implementation 'com.google.firebase:firebase-database-ktx:19.7.0'
+
+    //LiveData
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"       // ViewModel
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"        // LiveData
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"         // Lifecycles only (without ViewModel or LiveData)
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1"// Saved state module for ViewModel
+
+
 }
