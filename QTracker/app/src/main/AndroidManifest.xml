@@ -22,9 +22,6 @@
         <activity android:name=".bottomNavigation.BottomNavigation"
             android:theme="@style/Theme.QTracker">
         </activity>
-        <activity android:name=".test"
-            android:theme="@style/Theme.QTracker">
-        </activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

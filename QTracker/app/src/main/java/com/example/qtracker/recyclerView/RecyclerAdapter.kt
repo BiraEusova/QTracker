@@ -17,10 +17,10 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     lateinit var context: Context
     lateinit var myView: View
 
-    fun RecyclerAdapter(lessons: MutableList<Lesson>, context: Context){
+    /*fun RecyclerAdapter(lessons: MutableList<Lesson>, context: Context){
         this.lessons = lessons
         this.context = context
-    }
+    }*/
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.class_card, parent, false )
@@ -34,13 +34,15 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         holder.bind(item, context, myView)
     }
 
-    fun getView(view: View){
+    /*fun getView(view: View){
         this.myView = view
-    }
+    }*/
 
-    fun set(list: MutableList<Lesson>){
-        this.lessons.clear()
+    fun set(list: MutableList<Lesson>, context: Context, view:View){
+        //this.lessons.clear()
         this.lessons.addAll(list)
+        this.context = context
+        this.myView = view
         notifyDataSetChanged()
     }
 
@@ -60,7 +62,8 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
             name.text = lesson.name
             group.text = lesson.group
             teacher.text = lesson.teacher
-            view.setBackgroundColor(getColor(color))
+            val v = this.itemView
+            v.setBackgroundColor(getColor(color))
         }
 
         fun getColor(color: String): Int {

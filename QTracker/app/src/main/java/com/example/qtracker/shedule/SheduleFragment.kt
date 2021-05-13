@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
@@ -61,7 +63,15 @@ class SheduleFragment : Fragment() {
         thisView.sheduleRecyclerView.adapter = adapter
 
         sheduleViewModel.getData()
-        adapter.set(sheduleViewModel.lessons)
+
+        if (sheduleViewModel.lessons.isEmpty()){
+            thisView.emptyDayImageView.visibility = VISIBLE;
+        }
+        else thisView.emptyDayImageView.visibility = INVISIBLE;
+
+        sheduleViewModel.lessons.add(Lesson("1212", "sth", "00:00", "00:00", "smb", "971900", "Red"))
+
+        adapter.set(sheduleViewModel.lessons, requireContext(), thisView)
 
     }
 }

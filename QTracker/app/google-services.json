@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "805617633027",
-    "project_id": "qtracker-ba201",
-    "storage_bucket": "qtracker-ba201.appspot.com"
+    "project_number": "287383988849",
+    "firebase_url": "https://qtracker-34773-default-rtdb.firebaseio.com",
+    "project_id": "qtracker-34773",
+    "storage_bucket": "qtracker-34773.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:805617633027:android:d70b1ce5cf90b479378b36",
+        "mobilesdk_app_id": "1:287383988849:android:6451d750aa4c7df5ca09d0",
         "android_client_info": {
           "package_name": "com.example.qtracker"
         }
       },
       "oauth_client": [
         {
-          "client_id": "805617633027-cr563pv0bslh672bt4jus1i8em6cgrks.apps.googleusercontent.com",
+          "client_id": "287383988849-iortluvh7gqrdm7meqd3hnvuuh7ttrng.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyARMBKmMprkAD3sigELLH_GHQ6v_b2RNAs"
+          "current_key": "AIzaSyAY9iQa0W4Y5qV1Lu4rFgGFOcbtapXo0-I"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "805617633027-cr563pv0bslh672bt4jus1i8em6cgrks.apps.googleusercontent.com",
+              "client_id": "287383988849-iortluvh7gqrdm7meqd3hnvuuh7ttrng.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
