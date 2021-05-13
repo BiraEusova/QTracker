@@ -1,23 +1,36 @@
 package com.example.qtracker.shedule
 
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.qtracker.R
+import com.example.qtracker.databinding.SignUpFragmentBinding
+import com.example.qtracker.dataclasses.Lesson
 import com.example.qtracker.recyclerView.RecyclerAdapter
+import com.example.qtracker.signup.SignUpViewModel
+import com.tiper.MaterialSpinner
 import kotlinx.android.synthetic.main.shedule_fragment.view.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class SheduleFragment : Fragment() {
 
     private lateinit var navController: NavController
+    private lateinit var sheduleViewModel: SheduleViewModel
+    //private var _binding: SignUpFragmentBinding? = null
+    //private val binding get() = _binding!!
+    private lateinit var adapter: RecyclerAdapter
     private lateinit var mRecyclerView : RecyclerView
-    private val mAdapter : RecyclerAdapter = RecyclerAdapter()
+    private lateinit var thisView: View
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -26,19 +39,29 @@ class SheduleFragment : Fragment() {
     ): View? {
 
         //navController = Navigation.findNavController(requireActivity(), R.id.navHostFragment)
+        sheduleViewModel = SheduleViewModel(requireContext())
 
-        var view = inflater.inflate(R.layout.shedule_fragment,
+        thisView = inflater.inflate(R.layout.shedule_fragment,
             container, false)
 
-        mRecyclerView = view!!.sheduleRecyclerView
-        mRecyclerView.setHasFixedSize(true)
-        mRecyclerView.layoutManager = LinearLayoutManager(context)
-        mAdapter.RecyclerAdapter(/*getNotes(),*/ requireContext())
-        mAdapter.getView(view)
-        mRecyclerView.adapter = mAdapter
+        return thisView
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        return inflater.inflate(R.layout.shedule_fragment,
-                container, false)
+        setRecyclerView()
+    }
+
+    fun setRecyclerView(){
+
+        adapter = RecyclerAdapter()
+        val llm = LinearLayoutManager(requireContext())
+
+        thisView.sheduleRecyclerView.layoutManager = llm
+        thisView.sheduleRecyclerView.adapter = adapter
+
+        sheduleViewModel.getData()
+        adapter.set(sheduleViewModel.lessons)
+
     }
 }

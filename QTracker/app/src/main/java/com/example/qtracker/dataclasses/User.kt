@@ -6,4 +6,4 @@ data class User(
         val password: String,
         val group: String,
         val subgroup: String
-){}
+)

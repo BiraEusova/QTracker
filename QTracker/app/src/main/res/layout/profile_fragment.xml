@@ -181,7 +181,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginEnd="8dp"
-                    android:backgroundTint="FFFFFFFF"
+                    android:backgroundTint="#FFFFFFFF"
                     app:layout_constraintBottom_toBottomOf="@+id/passwordTextField"
                     app:layout_constraintEnd_toEndOf="@+id/passwordTextField"
                     app:layout_constraintTop_toTopOf="@+id/passwordTextField"

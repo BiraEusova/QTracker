@@ -5,33 +5,43 @@ import android.provider.ContactsContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.qtracker.R
+import com.example.qtracker.dataclasses.Lesson
 import kotlinx.android.synthetic.main.class_card.view.*
 
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
-    var notes: MutableList<ContactsContract.CommonDataKinds.Note> = ArrayList()
+    var lessons: MutableList<Lesson> = ArrayList()
     lateinit var context: Context
     lateinit var myView: View
 
-    fun RecyclerAdapter(/*classes: MutableList<ContactsContract.CommonDataKinds.Note>,*/ context: Context){
-        //this.notes = classes
+    fun RecyclerAdapter(lessons: MutableList<Lesson>, context: Context){
+        this.lessons = lessons
         this.context = context
     }
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.class_card, parent, false )
+        return ViewHolder(view)
+    }
+
+    override fun getItemCount(): Int = lessons.size
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = notes.get(position)
+        val item = lessons.get(position)
         holder.bind(item, context, myView)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        return ViewHolder(layoutInflater.inflate(R.layout.class_card, parent, false))
+    fun getView(view: View){
+        this.myView = view
     }
 
-    override fun getItemCount(): Int {
-        return notes.size
+    fun set(list: MutableList<Lesson>){
+        this.lessons.clear()
+        this.lessons.addAll(list)
+        notifyDataSetChanged()
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -39,19 +49,30 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         val startTime = view.startTimeTextView
         val finishTime = view.finishTimeTextView
         val group = view.groupTextView
-        var className = view.classNameTextView
+        var name = view.classNameTextView
         var teacher = view.teacherTextView
+        var color: String = ""
 
-        fun bind(note: ContactsContract.CommonDataKinds.Note, context: Context, view: View){
-            //id.text = note.id.toString()
-            //title.text = note.title
-            //subtitle.text = note.subtitle
-            //valCheck = note.check
-            //check.isChecked = valCheck
+        fun bind(lesson: Lesson, context: Context, view: View){
+            id.text = lesson.id
+            startTime.text = lesson.startTime
+            finishTime.text = lesson.finishTime
+            name.text = lesson.name
+            group.text = lesson.group
+            teacher.text = lesson.teacher
+            view.setBackgroundColor(getColor(color))
+        }
+
+        fun getColor(color: String): Int {
+            return when(color){
+                "Red" -> R.color.lection
+                "Blue" -> R.color.laboratory
+                "Orange" -> R.color.seminar
+                else -> R.color.practice
+            }
         }
     }
 
-    fun getView(view: View){
-        this.myView = view
-    }
+
+
 }
