@@ -5,6 +5,7 @@ import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
@@ -17,6 +18,7 @@ class ProfileFragment : Fragment() {
 
     private lateinit var navController: NavController
     private var passwordVisible = false
+    private lateinit var thisView: View
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,6 +27,16 @@ class ProfileFragment : Fragment() {
     ): View? {
         //navController = Navigation.findNavController(requireActivity(), R.id.navHostFragment)
 
+        thisView = inflater.inflate(
+            R.layout.profile_fragment,
+            container, false
+        )
+
+
+        return thisView
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         visibilityImageButton.setOnClickListener{
             if (passwordVisible) {
                 visibilityImageButton.setImageDrawable(
@@ -55,10 +67,5 @@ class ProfileFragment : Fragment() {
                 }
             }
         }
-
-        return inflater.inflate(
-            R.layout.profile_fragment,
-            container, false
-        )
     }
 }
