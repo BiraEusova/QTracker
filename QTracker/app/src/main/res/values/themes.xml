@@ -46,6 +46,16 @@
         <item name="android:windowTranslucentStatus">true</item>
     </style>
 
+    <style name="BotNav" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/lection</item>
+        <item name="colorPrimaryVariant">@color/laboratory</item>
+        <item name="colorOnPrimary">@color/seminar</item>
+        <item name="colorAccent">@color/practice</item>
+        <item name="android:textColorPrimary">@color/black</item>
+
+    </style>
+
+
     <!-- Main style for buttons -->
     <style name="MainButtonStyle" parent="@android:style/Widget.Button">
         <item name="android:background">@drawable/button_form</item>

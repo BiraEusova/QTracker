@@ -3,7 +3,8 @@
     <item
         android:id="@+id/list_item_botnav"
         android:icon="@drawable/botnav_item_list_selection"
-        android:title=""/>
+        android:title=""
+        />
     <item
         android:id="@+id/calendar_item_botnav"
         android:icon="@drawable/botnav_item_shedule_selection"
@@ -11,5 +12,5 @@
     <item
         android:id="@+id/user_item_botnav"
         android:icon="@drawable/botnav_item_profile_selection"
-        android:title=""/>
+        android:title="" />
 </menu>

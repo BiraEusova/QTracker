@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
@@ -19,6 +21,7 @@ class ProfileFragment : Fragment() {
 
     private lateinit var navController: NavController
     private var passwordVisible = false
+    private var editing = false
     private lateinit var thisView: View
 
     override fun onCreateView(
@@ -39,7 +42,20 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        disableTextField()
+        setEnableTextField()
+        changeView()
+
+        saveButton.setOnClickListener {
+            editing = false
+            setEnableTextField()
+            changeView()
+        }
+
+        editButton.setOnClickListener {
+            editing = true
+            setEnableTextField()
+            changeView()
+        }
 
         visibilityImageButton.setOnClickListener{
             changePasswordVisibility()
@@ -81,10 +97,16 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private fun disableTextField(){
-        thisView.nameTextField.isEnabled = false
-        thisView.passwordTextField.isEnabled = false
-        thisView.groupSpinner.isEnabled = false
-        thisView.subgroupSpinner.isEnabled = false
+    private fun setEnableTextField(){
+        thisView.nameTextField.isEnabled = editing
+        thisView.passwordTextField.isEnabled = editing
+        thisView.groupSpinner.isEnabled = editing
+        thisView.subgroupSpinner.isEnabled = editing
+    }
+
+    private fun changeView(){
+        thisView.editButton.visibility = if (editing) INVISIBLE else VISIBLE
+        thisView.allPositionsButton.visibility = if (editing) INVISIBLE else VISIBLE
+        thisView.saveButton.visibility = if (!editing) INVISIBLE else VISIBLE
     }
 }
