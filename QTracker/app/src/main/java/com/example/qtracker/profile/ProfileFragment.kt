@@ -12,6 +12,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.qtracker.R
 import kotlinx.android.synthetic.main.profile_fragment.*
+import kotlinx.android.synthetic.main.profile_fragment.view.*
 
 
 class ProfileFragment : Fragment() {
@@ -37,35 +38,53 @@ class ProfileFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        disableTextField()
+
         visibilityImageButton.setOnClickListener{
-            if (passwordVisible) {
-                visibilityImageButton.setImageDrawable(
-                    getDrawable(
-                        requireContext(),
-                        R.drawable.password_visibility_on
-                    )
-                )
-                passwordTextInputEditText.inputType = InputType.TYPE_CLASS_TEXT or
-                        InputType.TYPE_CLASS_TEXT
-                passwordTextInputEditText.text?.let { it1 ->
-                    passwordTextInputEditText.setSelection(
-                        it1.length)
-                }
-            }
-            else {
-                visibilityImageButton.setImageDrawable(
-                    getDrawable(
-                        requireContext(),
-                        R.drawable.password_visibility_off
-                    )
-                )
-                passwordTextInputEditText.inputType = InputType.TYPE_CLASS_TEXT or
-                        InputType.TYPE_TEXT_VARIATION_PASSWORD
-                passwordTextInputEditText.text?.let { it1 ->
-                    passwordTextInputEditText.setSelection(
-                        it1.length)
-                }
-            }
+            changePasswordVisibility()
         }
+    }
+
+    private fun changePasswordVisibility(){
+        if (passwordVisible) {
+            visibilityImageButton.setImageDrawable(
+                    getDrawable(
+                            requireContext(),
+                            R.drawable.password_visibility_on
+                    )
+            )
+            passwordTextInputEditText.inputType = InputType.TYPE_CLASS_TEXT or
+                    InputType.TYPE_CLASS_TEXT
+            passwordTextInputEditText.text?.let { it1 ->
+                passwordTextInputEditText.setSelection(
+                        it1.length)
+            }
+
+            passwordVisible = false
+        }
+        else {
+            visibilityImageButton.setImageDrawable(
+                    getDrawable(
+                            requireContext(),
+                            R.drawable.password_visibility_off
+                    )
+            )
+            passwordTextInputEditText.inputType = InputType.TYPE_CLASS_TEXT or
+                    InputType.TYPE_TEXT_VARIATION_PASSWORD
+            passwordTextInputEditText.text?.let { it1 ->
+                passwordTextInputEditText.setSelection(
+                        it1.length)
+            }
+
+            passwordVisible = true
+        }
+    }
+
+    private fun disableTextField(){
+        thisView.nameTextField.isEnabled = false
+        thisView.passwordTextField.isEnabled = false
+        thisView.groupSpinner.isEnabled = false
+        thisView.subgroupSpinner.isEnabled = false
     }
 }
